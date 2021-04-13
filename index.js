@@ -1,7 +1,9 @@
 var readLineSync = require('readline-sync');
+var chalk = require("chalk");
+
 var score = 0;
 
-//input
+// //input
 var questions = [{
   question : "my favourite DC character? ",
   answer : "darksied",
@@ -18,17 +20,20 @@ var questions = [{
 var score = 0;
 
 // Processing
+var title = chalk.bold.bgCyanBright;
 
+console.log(title("-----welcome to do you know me!-----"))
 function quizQuestions(quizQuestion, quizAnswer) {
   // Output
-    var userAnswer = readLineSync.question(quizQuestion);
+    var quizQues = chalk.bold.blueBright(quizQuestion);
+    var userAnswer = readLineSync.question(quizQues);
   if(quizAnswer === userAnswer) {
-    console.log("Correct !");
+    console.log(chalk.bold.bgGreen("Correct !"));
     score = score + 1;
   } else {
-    console.log("Incorrect !");
+    console.log(chalk.bold.bgRed("Incorrect !"));
   }
-  console.log("================");
+  console.log(chalk.bold.cyanBright("================"));
 }
 
 
